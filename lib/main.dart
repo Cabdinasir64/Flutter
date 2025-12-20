@@ -1,16 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_app1/home/home.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MaterialApp(
+    home: Home(),
+  ));
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: const Color.fromARGB(255, 172, 172, 64),
-    );
-  }
-}
