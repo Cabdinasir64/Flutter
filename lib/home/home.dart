@@ -21,10 +21,14 @@ class Home extends StatelessWidget {
         elevation: 10,
         shadowColor: Colors.black,
         iconTheme: IconThemeData(color: Colors.white),
-        titleTextStyle: TextStyle(
-          color: Colors.white,
-          fontSize: 24
-        ),
+        titleTextStyle: TextStyle(color: Colors.white, fontSize: 24),
+      ),
+      body: Column(
+        children: [
+          Image.network(
+            "https://images.unsplash.com/photo-1766445318570-1dc4bf3f5d79?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          ),
+        ],
       ),
     );
   }
