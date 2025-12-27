@@ -16,14 +16,14 @@ class Home extends StatelessWidget {
           Padding(padding: EdgeInsets.all(5), child: Icon(Icons.settings)),
         ],
         backgroundColor: Colors.brown,
-        foregroundColor: Colors.white,
         titleSpacing: 20,
         toolbarHeight: 80,
         elevation: 10,
         shadowColor: Colors.black,
-        iconTheme: IconThemeData(color: Colors.yellowAccent),
+        iconTheme: IconThemeData(color: Colors.white),
         titleTextStyle: TextStyle(
-          color: Colors.yellowAccent,
+          color: Colors.white,
+          fontSize: 24
         ),
       ),
     );
