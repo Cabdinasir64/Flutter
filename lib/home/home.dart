@@ -10,7 +10,11 @@ class Home extends StatelessWidget {
         title: const Text('Home Page'),
         leading: const Icon(Icons.home),
         leadingWidth: 50,
-        actions: [Icon(Icons.search), Icon(Icons.settings)],
+        actions: [
+          Padding(padding: EdgeInsets.all(5), child: Icon(Icons.notifications)),
+          Padding(padding: EdgeInsets.all(5), child: Icon(Icons.search)),
+          Padding(padding: EdgeInsets.all(5), child: Icon(Icons.settings)),
+        ],
         backgroundColor: Colors.brown,
         foregroundColor: Colors.white,
         titleSpacing: 20,
