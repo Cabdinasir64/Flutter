@@ -30,7 +30,7 @@ class Home extends StatelessWidget {
           ),
           SizedBox(height: 20),
           Container(
-            margin: EdgeInsets.only(left: 20),
+            margin: EdgeInsets.only(left: 20, right: 20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
