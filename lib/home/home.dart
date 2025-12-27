@@ -21,6 +21,10 @@ class Home extends StatelessWidget {
         toolbarHeight: 80,
         elevation: 10,
         shadowColor: Colors.black,
+        iconTheme: IconThemeData(color: Colors.yellowAccent),
+        titleTextStyle: TextStyle(
+          color: Colors.yellowAccent,
+        ),
       ),
     );
   }
