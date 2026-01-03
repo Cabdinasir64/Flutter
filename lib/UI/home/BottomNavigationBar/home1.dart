@@ -11,8 +11,15 @@ class _Home1State extends State<Home1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Home 1")),
-      body: const Center(child: Text("This is Home 1 Screen")),
+      appBar: AppBar(title: const Text("Bottom Navigation Bar - Home 1")),
+      body: const Center(child: Text("Home 1 Page")),
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+          BottomNavigationBarItem(icon: Icon(Icons.search), label: "Search"),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
+        ],
+      ),
     );
   }
 }
