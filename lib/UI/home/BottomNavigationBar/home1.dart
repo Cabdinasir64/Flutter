@@ -8,10 +8,18 @@ class Home1 extends StatefulWidget {
 }
 
 class _Home1State extends State<Home1> {
+  int currentIndex = 0;
+
+  List<Widget> pages = [
+    Container(color: Colors.red, child: Center(child: Text("Home Page", style: TextStyle(fontSize: 24)))),
+    Container(color: Colors.yellow, child: Center(child: Text("About Page", style: TextStyle(fontSize: 24)))),
+    Container(color: Colors.greenAccent, child: Center(child: Text("Settings Page", style: TextStyle(fontSize: 24)))),
+    Container(color: Colors.purpleAccent, child: Center(child: Text("Contact Page", style: TextStyle(fontSize: 24)))),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.amberAccent,
       appBar: AppBar(
         title: Text("Bottom Navigation Bar Example1"),
         titleSpacing: 2,
@@ -25,16 +33,35 @@ class _Home1State extends State<Home1> {
         shadowColor: Colors.grey,
         elevation: 3,
       ),
-      body: const Center(
-        child: Text("Home Page", style: TextStyle(fontSize: 24)),
-      ),
+      body: pages[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
+      iconSize: 30,
+        selectedItemColor: Colors.blueAccent,
+        unselectedItemColor: Colors.grey,
+        showSelectedLabels: true,
+        currentIndex: currentIndex,
+        elevation: 5, 
+        onTap: (index) => {
+          setState(() {
+            currentIndex = index;
+          })
+        },       
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home_outlined), label: "Home"),
-          BottomNavigationBarItem(icon: Icon(Icons.info_outline), label: "About"),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home_outlined),
+            label: "Home",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.info_outline),
+            label: "About",
+          ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings_outlined),
             label: "settings",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.contact_mail_outlined),
+            label: "Contact",
           ),
         ],
       ),
