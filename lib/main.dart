@@ -5,6 +5,6 @@ import 'package:mobile_app1/UI/home/BottomNavigationBar/home1.dart';
 void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: Home2(),
+    home: Home1(),
   ));
 }
