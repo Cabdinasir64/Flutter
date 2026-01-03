@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 
-class Home2 extends StatefulWidget {
-  const Home2({super.key});
+class Home1 extends StatefulWidget {
+  const Home1({super.key});
 
   @override
-  State<Home2> createState() => _Home2State();
+  State<Home1> createState() => _Home1State();
 }
 
-class _Home2State extends State<Home2> {
+class _Home1State extends State<Home1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Home 2")),
-      body: const Center(child: Text("This is Home 2 Screen")),
+      appBar: AppBar(title: const Text("Home 1")),
+      body: const Center(child: Text("This is Home 1 Screen")),
     );
   }
 }
