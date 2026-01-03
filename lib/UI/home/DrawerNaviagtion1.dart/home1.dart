@@ -14,7 +14,7 @@ class Home1 extends StatelessWidget {
             UserAccountsDrawerHeader(
               accountName: const Text('John Doe'),
               accountEmail: const Text('john.doe@example.com'),
-              currentAccountPicture: CircleAvatar(foregroundImage: AssetImage('assets/profile.png'),),
+              currentAccountPicture: CircleAvatar(foregroundImage: AssetImage('assets/profile.jpg'),),
             ),
           ],
         ),
