@@ -52,11 +52,13 @@ class _Home1State extends State<Home1> {
       body: pages[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         iconSize: 30,
-        selectedItemColor: Colors.blueAccent,
-        unselectedItemColor: Colors.grey,
-        showSelectedLabels: true,
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.black,
         currentIndex: currentIndex,
         elevation: 5,
+        type: BottomNavigationBarType.fixed,
+        showUnselectedLabels: false,
+        backgroundColor: Colors.indigoAccent,
         onTap: (index) => {
           setState(() {
             currentIndex = index;
