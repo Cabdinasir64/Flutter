@@ -11,10 +11,26 @@ class _Home1State extends State<Home1> {
   int currentIndex = 0;
 
   List<Widget> pages = [
-    Container(color: Colors.red, child: Center(child: Text("Home Page", style: TextStyle(fontSize: 24)))),
-    Container(color: Colors.yellow, child: Center(child: Text("About Page", style: TextStyle(fontSize: 24)))),
-    Container(color: Colors.greenAccent, child: Center(child: Text("Settings Page", style: TextStyle(fontSize: 24)))),
-    Container(color: Colors.purpleAccent, child: Center(child: Text("Contact Page", style: TextStyle(fontSize: 24)))),
+    Container(
+      color: Colors.red,
+      child: Center(child: Text("Home Page", style: TextStyle(fontSize: 24))),
+    ),
+    Container(
+      color: Colors.yellow,
+      child: Center(child: Text("About Page", style: TextStyle(fontSize: 24))),
+    ),
+    Container(
+      color: Colors.greenAccent,
+      child: Center(
+        child: Text("Settings Page", style: TextStyle(fontSize: 24)),
+      ),
+    ),
+    Container(
+      color: Colors.purpleAccent,
+      child: Center(
+        child: Text("Contact Page", style: TextStyle(fontSize: 24)),
+      ),
+    ),
   ];
 
   @override
@@ -35,17 +51,17 @@ class _Home1State extends State<Home1> {
       ),
       body: pages[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
-      iconSize: 30,
+        iconSize: 30,
         selectedItemColor: Colors.blueAccent,
         unselectedItemColor: Colors.grey,
         showSelectedLabels: true,
         currentIndex: currentIndex,
-        elevation: 5, 
+        elevation: 5,
         onTap: (index) => {
           setState(() {
             currentIndex = index;
-          })
-        },       
+          }),
+        },
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home_outlined),
