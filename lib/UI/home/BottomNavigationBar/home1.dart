@@ -11,6 +11,7 @@ class _Home1State extends State<Home1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.amberAccent,
       appBar: AppBar(
         title: Text("Bottom Navigation Bar Example1"),
         titleSpacing: 2,
@@ -24,12 +25,17 @@ class _Home1State extends State<Home1> {
         shadowColor: Colors.grey,
         elevation: 3,
       ),
-      body: const Center(child: Text("Home 1 Page")),
+      body: const Center(
+        child: Text("Home Page", style: TextStyle(fontSize: 24)),
+      ),
       bottomNavigationBar: BottomNavigationBar(
-        items: [
+        items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-          BottomNavigationBarItem(icon: Icon(Icons.search), label: "Search"),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
+          BottomNavigationBarItem(icon: Icon(Icons.info), label: "About"),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: "settings",
+          ),
         ],
       ),
     );
