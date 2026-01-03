@@ -39,6 +39,17 @@ class Home1 extends StatelessWidget {
               leading: const Icon(Icons.bookmark_rounded),
               title: const Text('Saved Messages'),
             ),
+
+            Divider(thickness: 1,),
+
+            ListTile(
+              leading: const Icon(Icons.person_add_outlined),
+              title: const Text('invite Friends'),
+            ),
+            ListTile(
+              leading: const Icon(Icons.help_outline),
+              title: const Text('Telegram features'),
+            ),
           ],
         ),
       ),
