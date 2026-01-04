@@ -17,7 +17,10 @@ class Home2 extends StatelessWidget {
         ),
       ),
       body: ListView(
+        scrollDirection: Axis.horizontal,
         children: [
+          ContainerWidget(),
+          ContainerWidget(),
           ContainerWidget(),
           ContainerWidget(),
           ContainerWidget(),
@@ -27,7 +30,6 @@ class Home2 extends StatelessWidget {
     );
   }
 }
-
 class ContainerWidget extends StatelessWidget {
   const ContainerWidget({super.key});
 
@@ -36,7 +38,8 @@ class ContainerWidget extends StatelessWidget {
     return Container(
       margin: EdgeInsets.all(10),
       color: Colors.yellow,
-      height: 100,
+      height: 10,
+      width: 10,
     );
   }
 }
