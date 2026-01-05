@@ -12,7 +12,7 @@ class Home2 extends StatelessWidget {
           content: const Text("Ma hubtaa inaad rabto inaad ka baxdo app-ka?"),
           actions: [
             TextButton(
-              onPressed: () => Navigator.pop(context), 
+              onPressed: () => Navigator.pop(context),
               child: const Text("MAYA"),
             ),
             TextButton(
@@ -32,11 +32,9 @@ class Home2 extends StatelessWidget {
         title: const Text("Interactive AppBar"),
         backgroundColor: Colors.orange[800],
 
-        // 1. leading: Markii la taabto SnackBar ha soo saaro
         leading: IconButton(
           icon: const Icon(Icons.info_outline),
           onPressed: () {
-            // SnackBar: Waa fariin yar oo hoos ka soo baxda
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(
                 content: Text("Waxaad taabatay Information Icon!"),
@@ -47,12 +45,10 @@ class Home2 extends StatelessWidget {
           },
         ),
 
-        // 2. actions: Markii la taabto Dialog (Daaqad) ha soo saaro
         actions: [
           IconButton(
             icon: const Icon(Icons.settings),
             onPressed: () {
-              // Halkan waxaan ugu yeeraynaa function-ka kore ee showMyDialog
               showMyDialog(context);
             },
           ),
