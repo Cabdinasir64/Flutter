@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 // import 'package:mobile_app1/UI/home/ListView/home3.dart';
 // import 'package:mobile_app1/UI/home/appBar/home1.dart';
 // import 'package:mobile_app1/UI/home/appBar/home2.dart';
-import 'package:mobile_app1/UI/home/body/body19.dart';
+import 'package:mobile_app1/UI/home/body/body20.dart';
 
 void main() {
-  runApp(MaterialApp(debugShowCheckedModeBanner: false, home: Body19()));
+  runApp(MaterialApp(debugShowCheckedModeBanner: false, home: Body20()));
 }
