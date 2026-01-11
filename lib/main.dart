@@ -11,5 +11,5 @@ import 'package:flutter/material.dart';
 import 'package:mobile_app1/UI/home/actions/action1.dart';
 
 void main() {
-  runApp(MaterialApp(debugShowCheckedModeBanner: false, home: action1()));
+  runApp(MaterialApp(debugShowCheckedModeBanner: false, home: Action1()));
 }
