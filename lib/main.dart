@@ -9,8 +9,17 @@ import 'package:flutter/material.dart';
 // import 'package:mobile_app1/UI/home/body/body21.dart';
 // import 'package:mobile_app1/UI/home/forms/form4.dart';
 // import 'package:mobile_app1/UI/home/actions/action21.dart';
-import 'package:mobile_app1/UI/home/navigations/navigation5.dart';
+import 'package:mobile_app1/UI/home/navigations/navigation6.dart';
 
 void main() {
-  runApp(MaterialApp(debugShowCheckedModeBanner: false, home: Navigation5()));
+  runApp(
+    MaterialApp(
+      debugShowCheckedModeBanner: false,
+      routes: {
+        '/': (context) => const Navigation6(), // Tani waa screen-ka diraya
+        '/user_info': (context) =>
+            const Navigation6Detail(), // Tani waa screen-ka helaya xogta
+      },
+    ),
+  );
 }
