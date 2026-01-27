@@ -9,18 +9,16 @@ import 'package:flutter/material.dart';
 // import 'package:mobile_app1/UI/home/body/body21.dart';
 // import 'package:mobile_app1/UI/home/forms/form4.dart';
 // import 'package:mobile_app1/UI/home/actions/action21.dart';
-import 'package:mobile_app1/UI/home/navigations/navigation9.dart';
-import 'package:mobile_app1/UI/home/navigations/pages/profile_page.dart';
-import 'package:mobile_app1/UI/home/navigations/pages/settings_page.dart';
+import 'package:mobile_app1/UI/home/navigations/navigation10.dart';
+import 'package:mobile_app1/UI/home/navigations/pages/user_details_page.dart';
 
 void main() {
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: {
-        '/': (context) => const Navigation9(),
-        ProfilePage.routeName: (context) => const ProfilePage(),
-        SettingsPage.routeName: (context) => const SettingsPage(),
+        '/': (context) => const Navigation10(),
+        UserDetailsPage.routeName: (context) => const UserDetailsPage(),
       },
     ),
   );
