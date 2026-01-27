@@ -9,16 +9,15 @@ import 'package:flutter/material.dart';
 // import 'package:mobile_app1/UI/home/body/body21.dart';
 // import 'package:mobile_app1/UI/home/forms/form4.dart';
 // import 'package:mobile_app1/UI/home/actions/action21.dart';
-import 'package:mobile_app1/UI/home/navigations/navigation6.dart';
+import 'package:mobile_app1/UI/home/navigations/navigation7.dart';
 
 void main() {
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: {
-        '/': (context) => const Navigation6(), 
-        '/user_info': (context) =>
-            const Navigation6Detail(), 
+        '/': (context) => const Navigation7(), 
+        '/product_details': (context) => const ProductDetailsScreen(),
       },
     ),
   );
