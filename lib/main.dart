@@ -11,14 +11,14 @@ import 'package:flutter/material.dart';
 // import 'package:mobile_app1/UI/home/actions/action21.dart';
 // import 'package:mobile_app1/UI/home/navigations/navigation10.dart';
 // import 'package:mobile_app1/UI/home/navigations/pages/user_details_page.dart';
-import 'package:mobile_app1/UI/home/assets/asset2.dart';
+import 'package:mobile_app1/UI/home/assets/asset3.dart';
 
 void main() {
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: {
-        '/': (context) => const AssetsManagement2(),
+        '/': (context) => const AssetsManagement3(),
       },
     ),
   );
