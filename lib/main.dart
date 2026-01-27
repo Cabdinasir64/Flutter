@@ -16,9 +16,9 @@ void main() {
     MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: {
-        '/': (context) => const Navigation6(), // Tani waa screen-ka diraya
+        '/': (context) => const Navigation6(), 
         '/user_info': (context) =>
-            const Navigation6Detail(), // Tani waa screen-ka helaya xogta
+            const Navigation6Detail(), 
       },
     ),
   );
