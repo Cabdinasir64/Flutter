@@ -12,14 +12,14 @@ import 'package:flutter/material.dart';
 // import 'package:mobile_app1/UI/home/navigations/navigation10.dart';
 // import 'package:mobile_app1/UI/home/navigations/pages/user_details_page.dart';
 // import 'package:mobile_app1/UI/home/assets/asset3.dart';
-import 'package:mobile_app1/UI/home/responsive/responsive13.dart';
+import 'package:mobile_app1/UI/home/responsive/responsive14.dart';
 
 void main() {
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: {
-        '/': (context) => const Responsive13(),
+        '/': (context) => const Responsive14(),
       },
     ),
   );
