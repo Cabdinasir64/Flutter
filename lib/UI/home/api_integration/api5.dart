@@ -10,7 +10,7 @@ class Api5 extends StatefulWidget {
 }
 
 class _Api5State extends State<Api5> {
-  final String url = "http://localhost:3000/api/tasks";
+  final String url = "http://10.0.2.2:3000/api/tasks";
   List<Task> tasks = [];
   bool isLoading = true;
 
