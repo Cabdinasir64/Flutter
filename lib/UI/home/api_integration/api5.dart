@@ -43,7 +43,9 @@ class _Api5State extends State<Api5> {
     final response = await http.delete(Uri.parse("$url/$id"));
     if (response.statusCode == 200) {
       getTasks();
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Task Deleted!")));
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(const SnackBar(content: Text("Task Deleted!")));
     }
   }
 
@@ -56,10 +58,21 @@ class _Api5State extends State<Api5> {
           "My Tasks",
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
-        centerTitle: true,
         backgroundColor: Colors.indigo,
         foregroundColor: Colors.white,
         elevation: 0,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.search),
+            onPressed: () {
+              Navigator.pushNamed(
+                context,
+                '/search',
+                arguments: tasks, 
+              );
+            },
+          ),
+        ],
       ),
       body: isLoading
           ? const Center(child: CircularProgressIndicator())
