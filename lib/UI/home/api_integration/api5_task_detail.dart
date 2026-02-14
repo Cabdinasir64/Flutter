@@ -163,7 +163,7 @@ class _TaskDetailState extends State<TaskDetail> {
                       )
                     : Icon(task.completed ? Icons.history : Icons.done_all),
                 label: Text(
-                  task.completed ? "Re-open Task" : "Mark as Completed",
+                  task.completed ? "Mark as Pending" : "Mark as Completed",
                   style: const TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
