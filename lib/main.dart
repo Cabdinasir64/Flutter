@@ -14,17 +14,18 @@ import 'package:flutter/material.dart';
 // import 'package:mobile_app1/UI/home/assets/asset3.dart';
 import 'package:mobile_app1/UI/home/api_integration/api5.dart';
 import 'package:mobile_app1/UI/home/api_integration/api5_form.dart';
+import 'package:mobile_app1/UI/home/api_integration/api5_task_detail.dart';
 
 void main() {
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
-           initialRoute: '/',
+      initialRoute: '/',
       routes: {
         '/': (context) => const Api5(),
-        '/add-task': (context) => const Api5Form(), 
+        '/add-task': (context) => const Api5Form(),
+        '/task-details': (context) => const TaskDetail(),
       },
-
     ),
   );
 }
