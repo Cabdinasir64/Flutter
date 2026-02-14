@@ -17,6 +17,7 @@ class _Api5State extends State<Api5> {
 
   bool isLoading = true;
   String selectedFilter = "All";
+  bool isAscending = true; 
 
   @override
   void initState() {
@@ -50,14 +51,29 @@ class _Api5State extends State<Api5> {
       if (filter == "All") {
         filteredTasks = allTasks;
       } else if (filter == "Completed") {
-        filteredTasks = allTasks
-            .where((task) => task.completed == true)
-            .toList();
+        filteredTasks = allTasks.where((task) => task.completed == true).toList();
       } else if (filter == "Pending") {
-        filteredTasks = allTasks
-            .where((task) => task.completed == false)
-            .toList();
+        filteredTasks = allTasks.where((task) => task.completed == false).toList();
       }
+      
+      _sortTasks();
+    });
+  }
+
+  void _sortTasks() {
+    setState(() {
+      if (isAscending) {
+        filteredTasks.sort((a, b) => a.title.toLowerCase().compareTo(b.title.toLowerCase()));
+      } else {
+        filteredTasks.sort((a, b) => b.title.toLowerCase().compareTo(a.title.toLowerCase()));
+      }
+    });
+  }
+
+  void _toggleSort() {
+    setState(() {
+      isAscending = !isAscending;
+      _sortTasks();
     });
   }
 
@@ -66,10 +82,7 @@ class _Api5State extends State<Api5> {
     if (response.statusCode == 200) {
       getTasks();
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text("Task Deleted!"),
-          behavior: SnackBarBehavior.floating,
-        ),
+        const SnackBar(content: Text("Task Deleted!"), behavior: SnackBarBehavior.floating),
       );
     }
   }
@@ -79,14 +92,16 @@ class _Api5State extends State<Api5> {
     return Scaffold(
       backgroundColor: Colors.grey[100],
       appBar: AppBar(
-        title: const Text(
-          "My Tasks",
-          style: TextStyle(fontWeight: FontWeight.bold),
-        ),
+        title: const Text("My Tasks", style: TextStyle(fontWeight: FontWeight.bold)),
         backgroundColor: Colors.indigo,
         foregroundColor: Colors.white,
         elevation: 0,
         actions: [
+          IconButton(
+            icon: Icon(isAscending ? Icons.sort_by_alpha : Icons.sort_by_alpha_outlined),
+            onPressed: _toggleSort,
+            tooltip: isAscending ? "Sort Z-A" : "Sort A-Z",
+          ),
           IconButton(
             icon: const Icon(Icons.search),
             onPressed: () {
@@ -113,22 +128,21 @@ class _Api5State extends State<Api5> {
             child: isLoading
                 ? const Center(child: CircularProgressIndicator())
                 : filteredTasks.isEmpty
-                ? _buildEmptyState()
-                : ListView.builder(
-                    padding: const EdgeInsets.all(12),
-                    itemCount: filteredTasks.length,
-                    itemBuilder: (context, index) {
-                      final item = filteredTasks[index];
-                      return _buildTaskCard(item);
-                    },
-                  ),
+                    ? _buildEmptyState()
+                    : ListView.builder(
+                        padding: const EdgeInsets.all(12),
+                        itemCount: filteredTasks.length,
+                        itemBuilder: (context, index) {
+                          final item = filteredTasks[index];
+                          return _buildTaskCard(item);
+                        },
+                      ),
           ),
         ],
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.indigo,
-        onPressed: () =>
-            Navigator.pushNamed(context, '/add-task').then((_) => getTasks()),
+        onPressed: () => Navigator.pushNamed(context, '/add-task').then((_) => getTasks()),
         child: const Icon(Icons.add, color: Colors.white),
       ),
     );
@@ -144,14 +158,12 @@ class _Api5State extends State<Api5> {
         decoration: BoxDecoration(
           color: isSelected ? activeColor : Colors.indigo[400],
           borderRadius: BorderRadius.circular(20),
-          boxShadow: isSelected
-              ? [const BoxShadow(color: Colors.black26, blurRadius: 4)]
-              : [],
+          boxShadow: isSelected ? [const BoxShadow(color: Colors.black26, blurRadius: 4)] : [],
         ),
         child: Text(
           label,
           style: TextStyle(
-            color: isSelected ? Colors.blue[900] : Colors.white,
+            color: isSelected ? Colors.indigo[900] : Colors.white,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -166,37 +178,22 @@ class _Api5State extends State<Api5> {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
       child: ListTile(
         contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
-        onTap: () => Navigator.pushNamed(
-          context,
-          '/task-details',
-          arguments: item,
-        ).then((value) => getTasks()),
+        onTap: () => Navigator.pushNamed(context, '/task-details', arguments: item).then((value) => getTasks()),
         leading: CircleAvatar(
           backgroundColor: item.completed ? Colors.green : Colors.orange,
-          child: Icon(
-            item.completed ? Icons.check : Icons.pending,
-            color: Colors.white,
-          ),
+          child: Icon(item.completed ? Icons.check : Icons.pending, color: Colors.white),
         ),
         title: Text(
           item.title,
           style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
         ),
-        subtitle: Text(
-          item.description,
-          maxLines: 1,
-          overflow: TextOverflow.ellipsis,
-        ),
+        subtitle: Text(item.description, maxLines: 1, overflow: TextOverflow.ellipsis),
         trailing: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
             IconButton(
               icon: const Icon(Icons.edit, color: Colors.blue),
-              onPressed: () => Navigator.pushNamed(
-                context,
-                '/add-task',
-                arguments: item,
-              ).then((_) => getTasks()),
+              onPressed: () => Navigator.pushNamed(context, '/add-task', arguments: item).then((_) => getTasks()),
             ),
             IconButton(
               icon: const Icon(Icons.delete, color: Colors.red),
@@ -213,16 +210,9 @@ class _Api5State extends State<Api5> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(
-            Icons.assignment_late_outlined,
-            size: 70,
-            color: Colors.grey[400],
-          ),
+          Icon(Icons.assignment_late_outlined, size: 70, color: Colors.grey[400]),
           const SizedBox(height: 10),
-          Text(
-            "No $selectedFilter Tasks Found",
-            style: TextStyle(color: Colors.grey[600], fontSize: 16),
-          ),
+          Text("No $selectedFilter Tasks Found", style: TextStyle(color: Colors.grey[600], fontSize: 16)),
         ],
       ),
     );
