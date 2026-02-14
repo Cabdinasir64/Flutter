@@ -85,7 +85,7 @@ class _Api5State extends State<Api5> {
                       context,
                       '/task-details',
                       arguments: item,
-                    ),
+                    ).then((value) => getTasks()),
                     leading: CircleAvatar(
                       backgroundColor: item.completed
                           ? Colors.green
