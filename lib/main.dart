@@ -12,10 +12,12 @@ import 'package:flutter/material.dart';
 // import 'package:mobile_app1/UI/home/navigations/navigation10.dart';
 // import 'package:mobile_app1/UI/home/navigations/pages/user_details_page.dart';
 // import 'package:mobile_app1/UI/home/assets/asset3.dart';
-import 'package:mobile_app1/UI/home/api_integration/api5.dart';
-import 'package:mobile_app1/UI/home/api_integration/api5_form.dart';
-import 'package:mobile_app1/UI/home/api_integration/api5_task_detail.dart';
-import 'package:mobile_app1/UI/home/api_integration/api5_search.dart';
+// import 'package:mobile_app1/UI/home/api_integration/api5.dart';
+// import 'package:mobile_app1/UI/home/api_integration/api5_form.dart';
+// import 'package:mobile_app1/UI/home/api_integration/api5_task_detail.dart';
+// import 'package:mobile_app1/UI/home/api_integration/api5_search.dart';
+import 'package:mobile_app1/UI/home/theme_demo/theme1.dart';
+
 
 void main() {
   runApp(
@@ -23,10 +25,7 @@ void main() {
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: {
-        '/': (context) => const Api5(),
-        '/add-task': (context) => const Api5Form(),
-        '/task-details': (context) => const TaskDetail(),
-        '/search': (context) => const Api5Search(),
+        '/': (context) => const Theme1(),
       },
     ),
   );
