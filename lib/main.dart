@@ -16,7 +16,7 @@ import 'package:flutter/material.dart';
 // import 'package:mobile_app1/UI/home/api_integration/api5_form.dart';
 // import 'package:mobile_app1/UI/home/api_integration/api5_task_detail.dart';
 // import 'package:mobile_app1/UI/home/api_integration/api5_search.dart';
-import 'package:mobile_app1/UI/home/theme_demo/theme1.dart';
+import 'package:mobile_app1/UI/home/theme_demo/theme2.dart';
 
 
 void main() {
@@ -25,7 +25,7 @@ void main() {
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: {
-        '/': (context) => const Theme1(),
+        '/': (context) => const Theme2(),
       },
     ),
   );
