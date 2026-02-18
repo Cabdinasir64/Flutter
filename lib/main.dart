@@ -16,18 +16,16 @@ import 'package:flutter/material.dart';
 // import 'package:mobile_app1/UI/home/api_integration/api5_form.dart';
 // import 'package:mobile_app1/UI/home/api_integration/api5_task_detail.dart';
 // import 'package:mobile_app1/UI/home/api_integration/api5_search.dart';
-import 'package:mobile_app1/UI/home/theme_demo/theme6.dart';
+// import 'package:mobile_app1/UI/home/theme_demo/theme6.dart';
 import 'package:mobile_app1/UI/home/theme_demo/theme7.dart';
-import 'package:mobile_app1/UI/home/theme_demo/theme5.dart';
 
 
 void main() {
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/theme6',
+      initialRoute: '/theme7',
       routes: {
-        '/theme6': (context) => const Theme6(),
         '/theme7': (context) => const Theme7(),
       },
     ),
