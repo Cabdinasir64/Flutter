@@ -1,71 +1,57 @@
+import 'dart:math';
 import 'package:flutter/material.dart';
-import '../../theme/app_colors.dart';
-import '../../theme/app_fonts.dart';
-import 'theme7.dart';
 
-class Theme6 extends StatelessWidget {
+class Theme6 extends StatefulWidget {
   const Theme6({super.key});
+
+  @override
+  State<Theme6> createState() => _Theme6State();
+}
+
+class _Theme6State extends State<Theme6> {
+  double _width = 100;
+  double _height = 100;
+  Color _color = Colors.blue;
+  BorderRadiusGeometry _borderRadius = BorderRadius.circular(10);
+
+  void _animateContainer() {
+    setState(() {
+      final random = Random();
+
+      _width = random.nextInt(300).toDouble() + 50;
+      _height = random.nextInt(300).toDouble() + 50;
+
+      _color = Color.fromRGBO(
+        random.nextInt(256),
+        random.nextInt(256),
+        random.nextInt(256),
+        1,
+      );
+
+      _borderRadius = BorderRadius.circular(random.nextInt(100).toDouble());
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.bgLight,
       appBar: AppBar(
-        title: Text(
-          "Transition Start",
-          style: AppFonts.h2.copyWith(color: Colors.white),
-        ),
-        backgroundColor: AppColors.primary,
+        title: const Text('Theme 6: Animated Container'),
+        backgroundColor: Colors.deepPurple,
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Icon(
-              Icons.flight_takeoff,
-              size: 80,
-              color: AppColors.primary,
-            ),
-            const SizedBox(height: 20),
-            Text("Ready to Move?", style: AppFonts.h1),
-            const SizedBox(height: 10),
-            Text("Click below to slide to Theme 7", style: AppFonts.caption),
-            const SizedBox(height: 40),
-
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.primary,
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 40,
-                  vertical: 15,
-                ),
-              ),
-              onPressed: () {
-                Navigator.of(context).push(_createRoute());
-              },
-              child: Text("GO TO THEME 7 (SLIDE)", style: AppFonts.button),
-            ),
-          ],
+        child: AnimatedContainer(
+          width: _width,
+          height: _height,
+          decoration: BoxDecoration(color: _color, borderRadius: _borderRadius),
+          duration: const Duration(seconds: 1),
+          curve: Curves.fastOutSlowIn,
         ),
       ),
-    );
-  }
-
-  Route _createRoute() {
-    return PageRouteBuilder(
-      pageBuilder: (context, animation, secondaryAnimation) => const Theme7(),
-      transitionsBuilder: (context, animation, secondaryAnimation, child) {
-        const begin = Offset(1.1, 0.0);
-        const end = Offset.zero;
-        const curve = Curves.easeInOut;
-
-        var tween = Tween(
-          begin: begin,
-          end: end,
-        ).chain(CurveTween(curve: curve));
-
-        return SlideTransition(position: animation.drive(tween), child: child);
-      },
+      floatingActionButton: FloatingActionButton(
+        onPressed: _animateContainer,
+        child: const Icon(Icons.play_arrow),
+      ),
     );
   }
 }
