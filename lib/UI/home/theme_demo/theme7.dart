@@ -1,72 +1,86 @@
 import 'package:flutter/material.dart';
-import '../../theme/app_colors.dart';
-import '../../theme/app_fonts.dart';
 
-class Theme7 extends StatelessWidget {
+class Theme7 extends StatefulWidget {
   const Theme7({super.key});
+
+  @override
+  State<Theme7> createState() => _Theme7State();
+}
+
+class _Theme7State extends State<Theme7> {
+  bool _isVisible = true;
+  Alignment _alignment =
+      Alignment.topCenter; 
+
+  void _toggleAnimation() {
+    setState(() {
+      _isVisible = !_isVisible;
+      _alignment = _isVisible ? Alignment.topCenter : Alignment.bottomCenter;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors
-          .secondary, 
       appBar: AppBar(
-        backgroundColor:
-            Colors.transparent, 
-        elevation: 0,
-        title: Text(
-          "Arrived!",
-          style: AppFonts.h2.copyWith(color: Colors.white),
-        ),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
-          onPressed: () => Navigator.pop(context),
-        ),
+        title: const Text('Theme 7: Opacity & Align'),
+        backgroundColor: Colors.teal,
       ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(30.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                padding: const EdgeInsets.all(20),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: const Icon(
-                  Icons.check_circle,
-                  size: 60,
-                  color: AppColors.success,
-                ),
-              ),
-              const SizedBox(height: 30),
-              Text(
-                "Theme 7 Reached",
-                style: AppFonts.h1.copyWith(color: Colors.white),
-              ),
-              const SizedBox(height: 10),
-              Text(
-                "Waxaan ku nimid halkan 'Slide Transition' oo ka yimid midig -> bidix.",
-                textAlign: TextAlign.center,
-                style: AppFonts.body.copyWith(color: Colors.white70),
-              ),
-              const SizedBox(height: 50),
-              OutlinedButton(
-                style: OutlinedButton.styleFrom(
-                  side: const BorderSide(color: Colors.white),
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 40,
-                    vertical: 15,
+      body: Stack(
+        children: [
+          AnimatedAlign(
+            alignment: _alignment,
+            duration: const Duration(seconds: 1),
+            curve: Curves.easeInOutBack, 
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: AnimatedOpacity(
+                opacity: _isVisible
+                    ? 1.0
+                    : 0.5, 
+                duration: const Duration(milliseconds: 800),
+                child: Container(
+                  width: 150,
+                  height: 150,
+                  decoration: BoxDecoration(
+                    color: Colors.teal,
+                    borderRadius: BorderRadius.circular(20),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.2),
+                        blurRadius: 10,
+                      ),
+                    ],
+                  ),
+                  child: const Center(
+                    child: Icon(Icons.star, color: Colors.white, size: 50),
                   ),
                 ),
-                onPressed: () => Navigator.pop(context),
-                child: Text("GO BACK", style: AppFonts.button),
               ),
-            ],
+            ),
           ),
-        ),
+
+          Positioned(
+            bottom: 100,
+            left: 0,
+            right: 0,
+            child: Center(
+              child: Text(
+                _isVisible ? "Wuu Muuqdaa (Top)" : "Wuu Qarsoomayaa (Bottom)",
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: _toggleAnimation,
+        label: const Text("Animate"),
+        icon: const Icon(Icons.play_arrow),
+        backgroundColor: Colors.teal,
       ),
     );
   }
