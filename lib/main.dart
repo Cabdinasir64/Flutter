@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:mobile_app1/state_management/state1.dart';
-import 'package:mobile_app1/UI/home/state_examples/state1.dart';
+import 'package:mobile_app1/state_management/state2.dart';
+import 'package:mobile_app1/UI/home/state_examples/state2.dart';
 
 void main() {
   runApp(
     MultiProvider(
-      providers: [ChangeNotifierProvider(create: (_) => CounterProvider1())],
+      providers: [
+        ChangeNotifierProvider(create: (_) => TaskProvider2())
+      ],
       child: const MyApp(),
     ),
   );
@@ -19,8 +21,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/state1',
-      routes: {'/state1': (context) => const State1UI()},
+      initialRoute: '/state2',
+      routes: {'/state2': (context) => State2UI()},
     );
   }
 }
